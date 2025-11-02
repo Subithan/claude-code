@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NebulaFlow | Adaptive Workflows for the Modern Team</title>
+  <meta name="description" content="NebulaFlow is the adaptive automation platform that helps modern teams orchestrate workflows with clarity, speed, and delight.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%2322d3ee'/%3E%3Cstop offset='100%25' stop-color='%23a855f7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='28' fill='%230b0f1a' stroke='url(%23g)' stroke-width='6'/%3E%3Cpath d='M20 32l8 10 16-20' fill='none' stroke='url(%23g)' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="NebulaFlow | Adaptive Workflows for the Modern Team">
+  <meta property="og:description" content="NebulaFlow brings automation to life with real-time intelligence, secure collaboration, and expressive dashboards.">
+  <meta property="og:image" content="https://nebula.example.com/og-image.png">
+  <meta property="og:url" content="https://nebula.example.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="NebulaFlow | Adaptive Workflows for the Modern Team">
+  <meta name="twitter:description" content="Adaptive workflows for the modern team.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "NebulaFlow",
+    "url": "https://nebula.example.com",
+    "logo": "https://nebula.example.com/logo.png",
+    "sameAs": [
+      "https://twitter.com/nebulaflow",
+      "https://www.linkedin.com/company/nebulaflow"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <canvas class="background-canvas" aria-hidden="true"></canvas>
+  <div class="background-gradient" aria-hidden="true"></div>
+  <header class="site-header" id="top">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="nav__brand" href="#top" aria-label="NebulaFlow home">
+        <span class="nav__logo" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="logoGradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#22d3ee" />
+                <stop offset="100%" stop-color="#a855f7" />
+              </linearGradient>
+            </defs>
+            <rect x="8" y="8" width="48" height="48" rx="12" fill="url(#logoGradient)" fill-opacity="0.15" stroke="url(#logoGradient)" stroke-width="2"></rect>
+            <path d="M20 36c0-6.627 5.373-12 12-12 4.057 0 7.646 1.998 9.856 5.064" stroke="#22d3ee" stroke-width="3" stroke-linecap="round"/>
+            <path d="M44 28c0 6.627-5.373 12-12 12-4.057 0-7.646-1.998-9.856-5.064" stroke="#a855f7" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="nav__title">NebulaFlow</span>
+      </a>
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu">
+        <span class="sr-only">Toggle navigation</span>
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="nav__toggle-icon">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </button>
+      <div class="nav__links" id="nav-menu">
+        <a href="#features" class="nav__link">Features</a>
+        <a href="#showcase" class="nav__link">Showcase</a>
+        <a href="#testimonials" class="nav__link">Stories</a>
+        <a href="#pricing" class="nav__link">Pricing</a>
+        <a href="#pricing" class="button button--ghost nav__cta">Get Started</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section" id="hero">
+      <div class="hero__content reveal">
+        <h1 class="hero__title">Orchestrate workflows at the speed of imagination.</h1>
+        <p class="hero__subtitle">NebulaFlow unifies automation, analytics, and collaboration in a single canvas so your team can deliver with clarity and confidence.</p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="#pricing">Start your free trial</a>
+          <a class="button button--secondary" href="#showcase">See it in action</a>
+        </div>
+        <ul class="hero__meta" aria-label="Key value points">
+          <li>
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 5v14m7-7H5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Seamless integrations
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 6a6 6 0 016 6v7H6v-7a6 6 0 016-6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/><path d="M9 18v-2a3 3 0 016 0v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Enterprise-grade security
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Real-time reporting
+          </li>
+        </ul>
+      </div>
+      <div class="hero__visual reveal" aria-hidden="true">
+        <div class="hero__orbital">
+          <svg class="hero__grid" viewBox="0 0 320 360" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="visualGradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#22d3ee" />
+                <stop offset="100%" stop-color="#a855f7" />
+              </linearGradient>
+            </defs>
+            <rect x="20" y="20" width="280" height="320" rx="32" fill="url(#visualGradient)" opacity="0.08" />
+            <rect x="40" y="40" width="240" height="280" rx="28" fill="#0f172a" opacity="0.9" stroke="url(#visualGradient)" stroke-opacity="0.5" />
+            <g stroke="url(#visualGradient)" stroke-opacity="0.25">
+              <path d="M60 80h200M60 120h200M60 160h200M60 200h200M60 240h200"/>
+              <path d="M100 60v240M140 60v240M180 60v240M220 60v240"/>
+            </g>
+            <circle cx="140" cy="140" r="26" fill="url(#visualGradient)" opacity="0.6" />
+            <circle cx="210" cy="220" r="18" fill="url(#visualGradient)" opacity="0.35" />
+            <circle cx="180" cy="260" r="12" fill="url(#visualGradient)" opacity="0.5" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="features section" id="features">
+      <div class="section__header reveal">
+        <h2 class="section__title">Designed for clarity, built for scale.</h2>
+        <p class="section__subtitle">From realtime insights to intuitive automation, NebulaFlow helps every team move faster together.</p>
+      </div>
+      <div class="features__grid">
+        <article class="feature-card reveal">
+          <div class="feature-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="32" height="32"><path d="M12 3l7.794 4.5v9L12 21l-7.794-4.5v-9z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/><path d="M12 12l7.794-4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M12 12v9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="feature-card__title">Visual automation canvas</h3>
+          <p class="feature-card__description">Drag-and-drop builder with live previews, reusable templates, and instant publishing for every workflow.</p>
+        </article>
+        <article class="feature-card reveal">
+          <div class="feature-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="32" height="32"><path d="M4 7h16M4 12h10M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M17 12l3-3-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="feature-card__title">Automated handoffs</h3>
+          <p class="feature-card__description">Keep stakeholders aligned with smart routing, approvals, and adaptive alerts that respond to context.</p>
+        </article>
+        <article class="feature-card reveal">
+          <div class="feature-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="32" height="32"><path d="M12 5a7 7 0 110 14 7 7 0 010-14z" stroke="currentColor" stroke-width="2" fill="none"/><path d="M12 8v4l2 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="feature-card__title">Real-time intelligence</h3>
+          <p class="feature-card__description">AI-powered suggestions highlight bottlenecks and surface insights with predictive impact scores.</p>
+        </article>
+        <article class="feature-card reveal">
+          <div class="feature-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="32" height="32"><path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="2" fill="none"/><path d="M4 9h16" stroke="currentColor" stroke-width="2"/><path d="M9 9v11" stroke="currentColor" stroke-width="2"/><path d="M4 14h5" stroke="currentColor" stroke-width="2"/><path d="M14 4v5" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <h3 class="feature-card__title">Unified governance</h3>
+          <p class="feature-card__description">Role-based controls, audit trails, and compliance-ready policies keep every workflow accountable.</p>
+        </article>
+        <article class="feature-card reveal">
+          <div class="feature-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="32" height="32"><path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="2" fill="none"/><path d="M9 4v16" stroke="currentColor" stroke-width="2"/><path d="M15 10h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M15 14h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="feature-card__title">Context-rich dashboards</h3>
+          <p class="feature-card__description">Layer metrics, timelines, and sentiment in one place for a shared source of truth that updates itself.</p>
+        </article>
+        <article class="feature-card reveal">
+          <div class="feature-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="32" height="32"><path d="M12 3l8 4v10l-8 4-8-4V7z" stroke="currentColor" stroke-width="2" fill="none"/><path d="M12 7l8 4" stroke="currentColor" stroke-width="2"/><path d="M12 7v10" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <h3 class="feature-card__title">Global scale</h3>
+          <p class="feature-card__description">Deploy across regions with zero-downtime rollouts and observability baked into every layer.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="showcase section" id="showcase">
+      <div class="section__header reveal">
+        <h2 class="section__title">Everything you need, framed with focus.</h2>
+        <p class="section__subtitle">Dive into dynamic dashboards, curated automations, and connected data streams that respond in real time.</p>
+      </div>
+      <div class="showcase__frame reveal" role="img" aria-label="Screenshot of NebulaFlow dashboard">
+        <div class="showcase__inner">
+          <div class="showcase__bar"></div>
+          <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80" alt="NebulaFlow dashboard preview" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials section" id="testimonials">
+      <div class="section__header reveal">
+        <h2 class="section__title">Trusted by teams who build the future.</h2>
+        <p class="section__subtitle">Join product-led teams delivering seamless experiences across finance, healthcare, and SaaS.</p>
+      </div>
+      <div class="testimonials__grid">
+        <article class="testimonial reveal">
+          <div class="testimonial__avatar" aria-hidden="true">
+            <svg viewBox="0 0 64 64" width="56" height="56"><circle cx="32" cy="24" r="12" fill="#1f2937"/><path d="M16 50c0-8.837 7.163-16 16-16s16 7.163 16 16" fill="#1f2937"/></svg>
+          </div>
+          <blockquote class="testimonial__quote">“NebulaFlow gave us the clarity to ship every release with confidence. Our teams collaborate in one shared hub.”</blockquote>
+          <p class="testimonial__author">Jasmine Patel<span>VP Operations, Apex Labs</span></p>
+        </article>
+        <article class="testimonial reveal">
+          <div class="testimonial__avatar" aria-hidden="true">
+            <svg viewBox="0 0 64 64" width="56" height="56"><circle cx="32" cy="24" r="12" fill="#1f2937"/><path d="M16 52c0-9.941 7.163-18 16-18s16 8.059 16 18" fill="#1f2937"/></svg>
+          </div>
+          <blockquote class="testimonial__quote">“Automation that understands our context. NebulaFlow adapts to every compliance rule we throw at it.”</blockquote>
+          <p class="testimonial__author">Miguel Alvarez<span>Director of Compliance, Orison Health</span></p>
+        </article>
+        <article class="testimonial reveal">
+          <div class="testimonial__avatar" aria-hidden="true">
+            <svg viewBox="0 0 64 64" width="56" height="56"><circle cx="32" cy="24" r="12" fill="#1f2937"/><path d="M16 50c0-8.837 7.163-16 16-16s16 7.163 16 16" fill="#1f2937"/></svg>
+          </div>
+          <blockquote class="testimonial__quote">“From idea to launch in days. The team loves the visual canvas and the insights keep us ahead.”</blockquote>
+          <p class="testimonial__author">Zoë Reinhardt<span>Chief Product Officer, Lumenic</span></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="pricing section" id="pricing">
+      <div class="section__header reveal">
+        <h2 class="section__title">Transparent pricing for every stage.</h2>
+        <p class="section__subtitle">Simple plans that grow with your team. Cancel anytime, scale effortlessly.</p>
+      </div>
+      <div class="pricing__grid">
+        <article class="pricing-card reveal" aria-label="Starter plan">
+          <h3 class="pricing-card__title">Starter</h3>
+          <p class="pricing-card__price">$29<span>/month</span></p>
+          <ul class="pricing-card__list">
+            <li>
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              Up to 5 automated workflows
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              Real-time dashboards
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              Email support
+            </li>
+          </ul>
+          <a class="button button--ghost" href="#">Choose Starter</a>
+        </article>
+        <article class="pricing-card pricing-card--recommended reveal" aria-label="Growth plan">
+          <div class="pricing-card__badge">Recommended</div>
+          <h3 class="pricing-card__title">Growth</h3>
+          <p class="pricing-card__price">$79<span>/month</span></p>
+          <ul class="pricing-card__list">
+            <li>
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              Unlimited automation canvas
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              Advanced governance controls
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              Priority success manager
+            </li>
+          </ul>
+          <a class="button button--primary" href="#">Choose Growth</a>
+        </article>
+        <article class="pricing-card reveal" aria-label="Enterprise plan">
+          <h3 class="pricing-card__title">Enterprise</h3>
+          <p class="pricing-card__price">Custom</p>
+          <ul class="pricing-card__list">
+            <li>
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              Dedicated infrastructure
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              On-prem & hybrid options
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              24/7 global support
+            </li>
+          </ul>
+          <a class="button button--secondary" href="#">Contact sales</a>
+        </article>
+      </div>
+    </section>
+
+      <section class="faq section" id="faq">
+        <div class="section__header reveal">
+          <h2 class="section__title">Frequently asked questions</h2>
+          <p class="section__subtitle">Answers to the top questions teams ask when moving to NebulaFlow.</p>
+        </div>
+        <div class="faq__list">
+        <article class="faq-item reveal">
+          <button class="faq-item__button" aria-expanded="false">
+            <span>How quickly can we launch our first workflow?</span>
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 6v12M6 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <div class="faq-item__content" hidden>
+            <p>Teams typically publish their first automated workflow within the first week using our guided templates and onboarding sessions.</p>
+          </div>
+        </article>
+        <article class="faq-item reveal">
+          <button class="faq-item__button" aria-expanded="false">
+            <span>Does NebulaFlow integrate with our existing tools?</span>
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 6v12M6 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <div class="faq-item__content" hidden>
+            <p>Yes, we offer 120+ native integrations and an open API so you can connect custom systems or data lakes with ease.</p>
+          </div>
+        </article>
+        <article class="faq-item reveal">
+          <button class="faq-item__button" aria-expanded="false">
+            <span>How does pricing scale as our team grows?</span>
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 6v12M6 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <div class="faq-item__content" hidden>
+            <p>Plans are billed per workspace with unlimited seats. As your automation volume increases, add-on capacity is available instantly.</p>
+          </div>
+        </article>
+        <article class="faq-item reveal">
+          <button class="faq-item__button" aria-expanded="false">
+            <span>Is NebulaFlow compliant with industry regulations?</span>
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 6v12M6 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <div class="faq-item__content" hidden>
+            <p>We are SOC 2 Type II and HIPAA compliant, with dedicated environments available for regulated industries.</p>
+          </div>
+        </article>
+        <article class="faq-item reveal">
+          <button class="faq-item__button" aria-expanded="false">
+            <span>Can we migrate data from our legacy platform?</span>
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 6v12M6 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <div class="faq-item__content" hidden>
+            <p>Our success team partners with you on migration, ensuring safe data transfer and configuration without downtime.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="footer">
+    <div class="footer__content">
+      <div class="footer__brand">
+        <span class="footer__logo" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="footerLogoGradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#22d3ee" />
+                <stop offset="100%" stop-color="#a855f7" />
+              </linearGradient>
+            </defs>
+            <rect x="8" y="8" width="48" height="48" rx="12" fill="url(#footerLogoGradient)" fill-opacity="0.12" stroke="url(#footerLogoGradient)" stroke-width="2"></rect>
+            <path d="M24 36c0-4.418 3.582-8 8-8 2.474 0 4.703 1.119 6.168 2.872" stroke="#22d3ee" stroke-width="3" stroke-linecap="round"/>
+            <path d="M40 28c0 4.418-3.582 8-8 8-2.474 0-4.703-1.119-6.168-2.872" stroke="#a855f7" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <p class="footer__description">NebulaFlow empowers teams to orchestrate, automate, and analyze every workflow in a single command center.</p>
+      </div>
+      <div class="footer__links">
+        <div>
+          <h3>Product</h3>
+          <ul>
+            <li><a href="#features">Overview</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#">Release notes</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Company</h3>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#">Guides</a></li>
+            <li><a href="#">API Docs</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__social">
+        <h3>Connect</h3>
+        <div class="footer__social-links" role="list">
+          <a href="https://twitter.com/nebulaflow" aria-label="NebulaFlow on Twitter">
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M22 5.92a6.38 6.38 0 01-1.89.53 3.3 3.3 0 001.43-1.81 6.55 6.55 0 01-2.07.81 3.28 3.28 0 00-5.72 2.24c0 .26.03.52.08.77A9.3 9.3 0 013 4.78a3.27 3.27 0 001.02 4.37 3.25 3.25 0 01-1.49-.41v.04a3.28 3.28 0 002.63 3.22 3.3 3.3 0 01-1.48.06 3.29 3.29 0 003.07 2.3A6.58 6.58 0 012 18.41a9.29 9.29 0 005.03 1.47c6.04 0 9.34-5.05 9.34-9.43 0-.14 0-.28-.01-.42A6.76 6.76 0 0022 5.92z" fill="currentColor"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/nebulaflow" aria-label="NebulaFlow on LinkedIn">
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4.98 3.5a2 2 0 11.02 4 2 2 0 01-.02-4zm.02 4.5H3v13h4V8H5zM9 8h3.8v1.8h.05c.53-1 1.8-2.05 3.7-2.05 4 0 4.7 2.6 4.7 6v7.25h-4v-6.4c0-1.52-.03-3.47-2.12-3.47-2.12 0-2.45 1.65-2.45 3.36V21h-4V8z" fill="currentColor"/></svg>
+          </a>
+          <a href="mailto:hello@nebula.example.com" aria-label="Email NebulaFlow">
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; <span id="current-year"></span> NebulaFlow. All rights reserved.</p>
+      <div class="footer__bottom-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Security</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
