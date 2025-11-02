@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NovaSphere | Illuminate Your Ideas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1Bf0Z4D3x8s3XH72QpxPY9UXm6C3z1PsvtOHhlh9e3e1zjUaz6+M0MZ7l+X+3bT2DQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <canvas id="particle-canvas" aria-hidden="true"></canvas>
+    <div class="animated-bg" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <nav class="nav">
+        <div class="brand">
+          <i class="fa-solid fa-star"></i>
+          <span>NovaSphere</span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#solutions">Solutions</a></li>
+          <li><a href="#testimonials">Stories</a></li>
+          <li><a href="#cta">Get Started</a></li>
+        </ul>
+        <button class="cta-btn">Launch App</button>
+      </nav>
+
+      <section class="hero">
+        <div class="hero__content">
+          <h1>Illuminate Your Next Big Idea</h1>
+          <p>
+            NovaSphere brings together intelligent automation, collaborative dashboards,
+            and real-time insights to help visionaries build experiences that feel
+            truly out of this world.
+          </p>
+          <div class="hero__actions">
+            <button class="primary-btn">Start Free Trial</button>
+            <button class="secondary-btn">Watch Demo</button>
+          </div>
+          <div class="hero__stats">
+            <div>
+              <span class="stat">120K+</span>
+              <span class="label">Creators empowered</span>
+            </div>
+            <div>
+              <span class="stat">98%</span>
+              <span class="label">Happier teams</span>
+            </div>
+            <div>
+              <span class="stat">24/7</span>
+              <span class="label">Guided support</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero__visual">
+          <div class="planet"></div>
+          <div class="orbit orbit--one">
+            <i class="fa-solid fa-rocket"></i>
+          </div>
+          <div class="orbit orbit--two">
+            <i class="fa-solid fa-meteor"></i>
+          </div>
+          <div class="orbit orbit--three">
+            <i class="fa-solid fa-satellite"></i>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section id="features" class="section features">
+        <h2 class="section__title">Everything you need to launch</h2>
+        <p class="section__subtitle">A constellation of tools designed to help your team shine.</p>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <i class="fa-solid fa-sparkles"></i>
+            <h3>AI-powered Workflows</h3>
+            <p>Automate the busywork with smart flows that adapt to your team&apos;s unique rhythm.</p>
+          </article>
+          <article class="feature-card">
+            <i class="fa-solid fa-chart-line"></i>
+            <h3>Live Intelligence</h3>
+            <p>Turn raw data into stunning visual stories and actionable recommendations instantly.</p>
+          </article>
+          <article class="feature-card">
+            <i class="fa-solid fa-users"></i>
+            <h3>Collaborative Universe</h3>
+            <p>Bring everyone together with shared canvases, synced updates, and immersive workshops.</p>
+          </article>
+          <article class="feature-card">
+            <i class="fa-solid fa-lock"></i>
+            <h3>Security Nebula</h3>
+            <p>Enterprise-grade protection with adaptive policies that keep your mission secure.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="solutions" class="section solutions">
+        <div class="solutions__content">
+          <h2 class="section__title">Designed for limitless teams</h2>
+          <p>
+            From startups sketching their first prototype to global organizations orchestrating
+            complex launches, NovaSphere evolves with your ambitions.
+          </p>
+          <ul class="solutions__list">
+            <li>
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+              Rapidly prototype products with intuitive drag-and-drop interfaces.
+            </li>
+            <li>
+              <i class="fa-solid fa-layer-group"></i>
+              Sync design, engineering, and marketing teams in a single shared hub.
+            </li>
+            <li>
+              <i class="fa-solid fa-moon"></i>
+              Schedule releases around the globe with timezone-aware automations.
+            </li>
+          </ul>
+        </div>
+        <div class="solutions__visual">
+          <div class="glow-card">
+            <h3>Mission Control</h3>
+            <p>Monitor every initiative with cosmic clarity.</p>
+            <div class="metrics">
+              <div>
+                <span class="metric">84%</span>
+                <span class="metric-label">Faster delivery</span>
+              </div>
+              <div>
+                <span class="metric">3.2x</span>
+                <span class="metric-label">Higher ROI</span>
+              </div>
+            </div>
+            <button class="ghost-btn">Explore dashboards</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="testimonials" class="section testimonials">
+        <h2 class="section__title">What visionaries are saying</h2>
+        <div class="testimonial-grid">
+          <article class="testimonial-card">
+            <p>
+              “NovaSphere is pure rocket fuel. Our team executed a six-month roadmap in six weeks.
+              The animations alone keep stakeholders mesmerized.”
+            </p>
+            <div class="author">
+              <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=80&q=80" alt="Portrait of Amelia" />
+              <div>
+                <span class="name">Amelia Reed</span>
+                <span class="role">Head of Product, Luminous Labs</span>
+              </div>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <p>
+              “The dark theme is gorgeous, but the real star is the automation. It just knows what
+              to do next and we simply keep creating.”
+            </p>
+            <div class="author">
+              <img src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?auto=format&fit=crop&w=80&q=80" alt="Portrait of Priya" />
+              <div>
+                <span class="name">Priya Kapoor</span>
+                <span class="role">Creative Director, Aurora Studio</span>
+              </div>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <p>
+              “From idea to launch, NovaSphere keeps every collaborator in perfect orbit. We&apos;ve never
+              shipped faster or with more confidence.”
+            </p>
+            <div class="author">
+              <img src="https://images.unsplash.com/photo-1544723795-3fb74cf3b5ba?auto=format&fit=crop&w=80&q=80" alt="Portrait of Leo" />
+              <div>
+                <span class="name">Leo Nakamura</span>
+                <span class="role">Innovation Lead, StellarWave</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="cta" class="section cta">
+        <div class="cta__inner">
+          <h2>Ready to launch into the NovaSphere?</h2>
+          <p>Join a galaxy of creators building luminous experiences for audiences everywhere.</p>
+          <div class="cta__actions">
+            <button class="primary-btn">Schedule a Call</button>
+            <button class="secondary-btn">Browse Templates</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__content">
+        <div class="brand">
+          <i class="fa-solid fa-star"></i>
+          <span>NovaSphere</span>
+        </div>
+        <p>Crafted for dreamers. Engineered for doers.</p>
+        <div class="socials">
+          <a href="#" aria-label="Follow on Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="Follow on Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Connect on LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="#" aria-label="Watch on YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <p class="footer__note">© 2024 NovaSphere Labs. All systems humming.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
