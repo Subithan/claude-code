@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NovaFlow — Elevate Your Creative Workflow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkP0uN7RZ+e6ztJcJuk+V6RzjY7C0d7t1u7lg2Gp1y7dQ7QJpIt4rB5xg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg" aria-hidden="true"></div>
+    <header class="nav">
+      <div class="logo">
+        <i class="fa-solid fa-star"></i>
+        <span>NovaFlow</span>
+      </div>
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#cta">Get Started</a>
+      </nav>
+      <button class="pill pill--outline">Sign In</button>
+    </header>
+
+    <main>
+      <section class="hero" id="hero">
+        <div class="hero__copy" data-animate>
+          <span class="pill pill--soft"><i class="fa-solid fa-bolt"></i> Now in Private Beta</span>
+          <h1>Craft immersive experiences with effortless orchestration.</h1>
+          <p>
+            NovaFlow pairs intuitive visual tooling with AI-assisted automation to help
+            product teams launch interactive journeys in minutes, not months.
+          </p>
+          <div class="hero__actions">
+            <button class="pill pill--primary">
+              <i class="fa-solid fa-rocket"></i>
+              Request Access
+            </button>
+            <button class="pill pill--ghost">
+              <i class="fa-solid fa-circle-play"></i>
+              Watch Demo
+            </button>
+          </div>
+          <div class="hero__stats">
+            <div>
+              <h3>120K+</h3>
+              <p>experiments launched</p>
+            </div>
+            <div>
+              <h3>98%</h3>
+              <p>customer satisfaction</p>
+            </div>
+            <div>
+              <h3>42%</h3>
+              <p>faster deployment</p>
+            </div>
+          </div>
+        </div>
+        <div class="hero__visual" data-animate>
+          <div class="floating floating--one">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <span>Adaptive flows</span>
+          </div>
+          <div class="floating floating--two">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>Realtime insights</span>
+          </div>
+          <div class="floating floating--three">
+            <i class="fa-solid fa-users"></i>
+            <span>Team ready</span>
+          </div>
+          <div class="orb"></div>
+          <div class="halo"></div>
+        </div>
+      </section>
+
+      <section class="panel" id="features">
+        <div class="section__heading" data-animate>
+          <span class="pill pill--soft"><i class="fa-solid fa-cubes"></i> Feature highlights</span>
+          <h2>Build, iterate, and orchestrate without compromise.</h2>
+        </div>
+        <div class="grid features">
+          <article class="feature" data-animate>
+            <i class="fa-solid fa-diagram-project"></i>
+            <h3>Visual Automation</h3>
+            <p>
+              Drag and drop branching journeys, trigger downstream actions, and let NovaFlow’s
+              orchestration engine handle the complexity for you.
+            </p>
+          </article>
+          <article class="feature" data-animate>
+            <i class="fa-solid fa-shield"></i>
+            <h3>Enterprise Grade</h3>
+            <p>
+              SOC2 compliant, fully encrypted, and designed for teams that expect resilience,
+              audit trails, and granular role-based access control.
+            </p>
+          </article>
+          <article class="feature" data-animate>
+            <i class="fa-solid fa-microchip"></i>
+            <h3>Intelligent Assist</h3>
+            <p>
+              Autocomplete workflows with AI suggestions, receive optimization nudges, and ship
+              iterations powered by real-time feedback loops.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel" id="workflow">
+        <div class="section__heading" data-animate>
+          <span class="pill pill--soft"><i class="fa-solid fa-flowchart"></i> Guided workflow</span>
+          <h2>From prototype to production in three elegant steps.</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline__item" data-animate>
+            <span class="timeline__icon"><i class="fa-solid fa-lightbulb"></i></span>
+            <div>
+              <h3>Ideate boldly</h3>
+              <p>Sketch journeys on the infinite canvas with instant AI prototyping.</p>
+            </div>
+          </div>
+          <div class="timeline__item" data-animate>
+            <span class="timeline__icon"><i class="fa-solid fa-gears"></i></span>
+            <div>
+              <h3>Automate flows</h3>
+              <p>Connect your stack with prebuilt integrations and low-code logic.</p>
+            </div>
+          </div>
+          <div class="timeline__item" data-animate>
+            <span class="timeline__icon"><i class="fa-solid fa-satellite"></i></span>
+            <div>
+              <h3>Launch at scale</h3>
+              <p>Deploy globally with observability, experimentation, and controls baked in.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel panel--accent" id="testimonials">
+        <div class="section__heading" data-animate>
+          <span class="pill pill--soft"><i class="fa-solid fa-comments"></i> Loved by teams</span>
+          <h2>Design leaders trust NovaFlow to accelerate their roadmap.</h2>
+        </div>
+        <div class="grid testimonials">
+          <blockquote class="testimonial" data-animate>
+            <p>
+              “NovaFlow gave us a single command center for coordinating product launches. The
+              visual automations are delightful.”
+            </p>
+            <footer>
+              <img src="https://i.pravatar.cc/100?img=32" alt="Portrait of Lena Carter" />
+              <div>
+                <strong>Lena Carter</strong>
+                <span>VP Product, Horizon Labs</span>
+              </div>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial" data-animate>
+            <p>
+              “From concept to shipped experience in under a week. The AI insights help us know
+              what to refine before our customers ask.”
+            </p>
+            <footer>
+              <img src="https://i.pravatar.cc/100?img=12" alt="Portrait of Amir Khouri" />
+              <div>
+                <strong>Amir Khouri</strong>
+                <span>Head of CX, Fathom</span>
+              </div>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial" data-animate>
+            <p>
+              “A dark-mode dream. Motion design, automation, and analytics all feel cohesive. Our
+              team can’t imagine shipping without it.”
+            </p>
+            <footer>
+              <img src="https://i.pravatar.cc/100?img=55" alt="Portrait of Pilar Gómez" />
+              <div>
+                <strong>Pilar Gómez</strong>
+                <span>Design Director, Luma Collective</span>
+              </div>
+            </footer>
+          </blockquote>
+        </div>
+      </section>
+
+      <section class="panel panel--glow" id="cta">
+        <div class="cta" data-animate>
+          <h2>Ready to orchestrate unforgettable journeys?</h2>
+          <p>
+            Join the beta to experience the new standard for collaborative product storytelling.
+          </p>
+          <div class="hero__actions">
+            <button class="pill pill--primary">
+              <i class="fa-solid fa-sparkles"></i>
+              Join the waitlist
+            </button>
+            <button class="pill pill--ghost">
+              <i class="fa-solid fa-message"></i>
+              Talk to us
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="logo">
+        <i class="fa-solid fa-star"></i>
+        <span>NovaFlow</span>
+      </div>
+      <p>© <span id="year"></span> NovaFlow Labs. Crafted for visionaries.</p>
+      <div class="socials">
+        <a href="#" aria-label="Twitter">
+          <i class="fa-brands fa-x-twitter"></i>
+        </a>
+        <a href="#" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="#" aria-label="YouTube">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
