@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pulseframe | Intelligent Workspace Automation</title>
+  <meta name="description" content="Pulseframe is the intelligent workspace platform that orchestrates teams, automates workflows, and keeps projects pulsing forward.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0'%3E%3Cstop offset='0' stop-color='%2322d3ee'/%3E%3Cstop offset='1' stop-color='%23a855f7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%230b0f1a'/%3E%3Cpath d='M16 34l8-12 8 20 8-12 8 4' fill='none' stroke='url(%23g)' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='16' cy='34' r='4' fill='%2322d3ee'/%3E%3Ccircle cx='48' cy='34' r='4' fill='%23a855f7'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Pulseframe",
+    "url": "https://pulseframe.io",
+    "logo": "https://pulseframe.io/logo.svg",
+    "sameAs": [
+      "https://twitter.com/pulseframe",
+      "https://www.linkedin.com/company/pulseframe"
+    ]
+  }
+  </script>
+  <meta property="og:title" content="Pulseframe | Intelligent Workspace Automation">
+  <meta property="og:description" content="Orchestrate teams and automate workflows with Pulseframe's unified workspace.">
+  <meta property="og:image" content="https://pulseframe.io/og-cover.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pulseframe.io">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pulseframe | Intelligent Workspace Automation">
+  <meta name="twitter:description" content="Orchestrate teams and automate workflows with Pulseframe's unified workspace.">
+</head>
+<body>
+  <canvas class="bg-canvas" id="bgCanvas" aria-hidden="true"></canvas>
+  <div class="background-gradient" aria-hidden="true"></div>
+  <header class="site-header" id="top">
+    <div class="container">
+      <nav class="nav" aria-label="Primary">
+        <a class="nav__logo" href="#top" aria-label="Pulseframe home">
+          <svg class="logo" viewBox="0 0 128 32" role="img" aria-hidden="true">
+            <defs>
+              <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#22d3ee" />
+                <stop offset="100%" stop-color="#a855f7" />
+              </linearGradient>
+            </defs>
+            <rect x="0" y="6" width="28" height="20" rx="10" fill="url(#logoGradient)" />
+            <path d="M8 18l3-4 3 8 3-5 3 2" fill="none" stroke="#0b0f1a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
+            <text x="38" y="21" fill="#e5e7eb" font-size="18" font-family="Outfit, sans-serif" font-weight="700">Pulseframe</text>
+          </svg>
+        </a>
+        <button class="nav__toggle" aria-expanded="false" aria-controls="primary-menu">
+          <span class="sr-only">Open navigation</span>
+          <svg class="nav__icon" viewBox="0 0 24 24" role="img" aria-hidden="true">
+            <rect x="4" y="6" width="16" height="2" rx="1" fill="#e5e7eb"></rect>
+            <rect x="4" y="11" width="16" height="2" rx="1" fill="#e5e7eb"></rect>
+            <rect x="4" y="16" width="16" height="2" rx="1" fill="#e5e7eb"></rect>
+          </svg>
+        </button>
+        <div class="nav__links" id="primary-menu">
+          <a class="nav__link" href="#features">Features</a>
+          <a class="nav__link" href="#showcase">Showcase</a>
+          <a class="nav__link" href="#pricing">Pricing</a>
+          <a class="nav__link" href="#faq">FAQ</a>
+          <a class="nav__cta button button--primary" href="#pricing">Get Started</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero reveal" id="hero">
+      <div class="container hero__content">
+        <div class="hero__copy">
+          <h1 class="hero__headline">Command your workflow with intelligent rhythm.</h1>
+          <p class="hero__subtext">Pulseframe unifies collaboration, automation, and insight into a single, adaptive workspace that moves as fast as your ambitions.</p>
+          <div class="hero__actions">
+            <a class="button button--primary" href="#pricing">Start your free trial</a>
+            <a class="button button--ghost" href="#features">Explore features</a>
+          </div>
+          <ul class="hero__points">
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 7l-9 9-5-5" fill="none" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              Real-time adaptive automations
+            </li>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 5v14M5 12h14" fill="none" stroke="#22d3ee" stroke-width="2" stroke-linecap="round"></path>
+              </svg>
+              Extend with modular integrations
+            </li>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 7h16M4 12h10M4 17h7" fill="none" stroke="#22d3ee" stroke-width="2" stroke-linecap="round"></path>
+              </svg>
+              Consolidate projects and reporting
+            </li>
+          </ul>
+        </div>
+        <div class="hero__visual" aria-hidden="true">
+          <div class="hero__orb">
+            <svg viewBox="0 0 320 320" class="hero__orb-svg">
+              <defs>
+                <radialGradient id="orbGradient" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.8" />
+                  <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.4" />
+                  <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0" />
+                </radialGradient>
+              </defs>
+              <circle cx="160" cy="160" r="140" fill="url(#orbGradient)"></circle>
+              <circle cx="160" cy="160" r="90" fill="none" stroke="#a855f7" stroke-width="3" stroke-dasharray="14 8"></circle>
+              <g stroke="#22d3ee" stroke-width="3" stroke-linecap="round">
+                <path d="M160 70v40" />
+                <path d="M160 210v40" />
+                <path d="M70 160h40" />
+                <path d="M210 160h40" />
+              </g>
+              <circle cx="160" cy="160" r="12" fill="#e5e7eb"></circle>
+            </svg>
+            <div class="hero__devices">
+              <div class="device device--laptop">
+                <div class="device__screen">
+                  <div class="device__header">
+                    <span></span><span></span><span></span>
+                  </div>
+                  <div class="device__content">
+                    <div class="device__chart"></div>
+                    <div class="device__list">
+                      <span></span><span></span><span></span><span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="device device--phone">
+                <div class="device__screen">
+                  <div class="device__badge">Pulse</div>
+                  <div class="device__bars"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features reveal" id="features" aria-labelledby="features-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-head__title" id="features-title">Everything orchestrated. Nothing siloed.</h2>
+          <p class="section-head__subtitle">Pulseframe maps your entire operation into a shared rhythm, giving every team a synchronized command center.</p>
+        </div>
+        <div class="features__grid">
+          <article class="feature-card" role="article">
+            <div class="feature-card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14M12 5v14M7 7l10 10" fill="none" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+            <h3 class="feature-card__title">Adaptive Automations</h3>
+            <p class="feature-card__text">Launch workflows that learn with every run, dynamically routing tasks and approvals across teams.</p>
+          </article>
+          <article class="feature-card" role="article">
+            <div class="feature-card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="4" y="6" width="16" height="12" rx="3" ry="3" fill="none" stroke="#22d3ee" stroke-width="2"></rect>
+                <path d="M4 11h16" fill="none" stroke="#22d3ee" stroke-width="2"></path>
+                <path d="M8 15h3" stroke="#22d3ee" stroke-width="2" stroke-linecap="round"></path>
+              </svg>
+            </div>
+            <h3 class="feature-card__title">Unified Dashboards</h3>
+            <p class="feature-card__text">Blend metrics, timelines, and conversations into a single glass surface with real-time signal strength.</p>
+          </article>
+          <article class="feature-card" role="article">
+            <div class="feature-card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 5l7 4v6l-7 4-7-4V9z" fill="none" stroke="#22d3ee" stroke-width="2" stroke-linejoin="round"></path>
+                <circle cx="12" cy="12" r="2" fill="#a855f7"></circle>
+              </svg>
+            </div>
+            <h3 class="feature-card__title">Signal Intelligence</h3>
+            <p class="feature-card__text">Predict bottlenecks before they surface with proactive alerts driven by contextual machine learning.</p>
+          </article>
+          <article class="feature-card" role="article">
+            <div class="feature-card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 9l7-4 7 4-7 4-7-4zm0 6l7 4 7-4" fill="none" stroke="#22d3ee" stroke-width="2" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+            <h3 class="feature-card__title">Scalable Infrastructure</h3>
+            <p class="feature-card__text">Launch in minutes and scale globally with enterprise-grade governance, logging, and compliance.</p>
+          </article>
+          <article class="feature-card" role="article">
+            <div class="feature-card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 6v6l4 2" fill="none" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <circle cx="12" cy="12" r="9" fill="none" stroke="#22d3ee" stroke-width="2"></circle>
+              </svg>
+            </div>
+            <h3 class="feature-card__title">Latency-Free Sync</h3>
+            <p class="feature-card__text">Experience lightning-fast collaboration with edge-synced updates and offline resilience baked in.</p>
+          </article>
+          <article class="feature-card" role="article">
+            <div class="feature-card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7 7h10v10H7z" fill="none" stroke="#22d3ee" stroke-width="2"></path>
+                <path d="M7 12h10" stroke="#22d3ee" stroke-width="2"></path>
+                <path d="M12 7v10" stroke="#22d3ee" stroke-width="2"></path>
+              </svg>
+            </div>
+            <h3 class="feature-card__title">Modular API Fabric</h3>
+            <p class="feature-card__text">Compose custom flows quickly with our schema-aware API fabric and developer-first tooling.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="showcase reveal" id="showcase" aria-labelledby="showcase-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-head__title" id="showcase-title">Your command center, beautifully synchronized.</h2>
+          <p class="section-head__subtitle">A responsive workspace with adaptive surfaces that flex to the way your teams operate.</p>
+        </div>
+        <div class="showcase__frame" data-parallax>
+          <img src="https://images.unsplash.com/photo-1523475472560-d2df97ec485c?auto=format&fit=crop&w=1400&q=80" alt="Pulseframe dashboard with charts and collaboration panels" loading="lazy" width="1200" height="720">
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials reveal" id="testimonials" aria-labelledby="testimonials-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-head__title" id="testimonials-title">Trusted by teams that move the world.</h2>
+          <p class="section-head__subtitle">Pulseframe keeps distributed teams aligned and energized around the work that matters most.</p>
+        </div>
+        <div class="testimonials__grid">
+          <figure class="testimonial-card">
+            <div class="testimonial-card__avatar">
+              <svg viewBox="0 0 48 48" aria-hidden="true">
+                <circle cx="24" cy="16" r="12" fill="#22d3ee"></circle>
+                <path d="M8 44c2-10 8-14 16-14s14 4 16 14" fill="#22d3ee" opacity="0.4"></path>
+              </svg>
+            </div>
+            <blockquote class="testimonial-card__quote">“Pulseframe replaced four tools overnight. Our teams now coordinate in hours, not days.”</blockquote>
+            <figcaption class="testimonial-card__meta">
+              <span class="testimonial-card__name">Leena Patel</span>
+              <span class="testimonial-card__role">VP Operations, Fluxwave</span>
+            </figcaption>
+          </figure>
+          <figure class="testimonial-card">
+            <div class="testimonial-card__avatar">
+              <svg viewBox="0 0 48 48" aria-hidden="true">
+                <circle cx="24" cy="16" r="12" fill="#a855f7"></circle>
+                <path d="M8 44c2-10 8-14 16-14s14 4 16 14" fill="#a855f7" opacity="0.4"></path>
+              </svg>
+            </div>
+            <blockquote class="testimonial-card__quote">“Analytics, automations, and messaging in one adaptive space. It’s the operating system for our org.”</blockquote>
+            <figcaption class="testimonial-card__meta">
+              <span class="testimonial-card__name">Marco Diaz</span>
+              <span class="testimonial-card__role">Head of Product, Circuitry</span>
+            </figcaption>
+          </figure>
+          <figure class="testimonial-card">
+            <div class="testimonial-card__avatar">
+              <svg viewBox="0 0 48 48" aria-hidden="true">
+                <circle cx="24" cy="16" r="12" fill="#4f46e5"></circle>
+                <path d="M8 44c2-10 8-14 16-14s14 4 16 14" fill="#4f46e5" opacity="0.4"></path>
+              </svg>
+            </div>
+            <blockquote class="testimonial-card__quote">“The intelligence layer anticipates what we need next. Our velocity chart finally looks healthy.”</blockquote>
+            <figcaption class="testimonial-card__meta">
+              <span class="testimonial-card__name">Sara Kim</span>
+              <span class="testimonial-card__role">Delivery Director, Helix Labs</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing reveal" id="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-head__title" id="pricing-title">Flexible plans for every scale.</h2>
+          <p class="section-head__subtitle">Choose the signal strength you need today and scale seamlessly as your orbit expands.</p>
+        </div>
+        <div class="pricing__grid">
+          <article class="pricing-card" aria-label="Starter plan">
+            <div class="pricing-card__header">
+              <h3 class="pricing-card__title">Starter</h3>
+              <p class="pricing-card__price"><span>$</span>24<span>/mo</span></p>
+            </div>
+            <ul class="pricing-card__features">
+              <li>5 active workstreams</li>
+              <li>Automated playbooks</li>
+              <li>Team insights dashboard</li>
+            </ul>
+            <a class="button button--ghost" href="#contact">Choose Starter</a>
+          </article>
+          <article class="pricing-card pricing-card--recommended" aria-label="Growth plan">
+            <div class="pricing-card__badge">Recommended</div>
+            <div class="pricing-card__header">
+              <h3 class="pricing-card__title">Growth</h3>
+              <p class="pricing-card__price"><span>$</span>58<span>/mo</span></p>
+            </div>
+            <ul class="pricing-card__features">
+              <li>Unlimited workstreams</li>
+              <li>Predictive signal alerts</li>
+              <li>Priority integrations</li>
+              <li>24/7 concierge support</li>
+            </ul>
+            <a class="button button--primary" href="#contact">Choose Growth</a>
+          </article>
+          <article class="pricing-card" aria-label="Enterprise plan">
+            <div class="pricing-card__header">
+              <h3 class="pricing-card__title">Enterprise</h3>
+              <p class="pricing-card__price">Custom</p>
+            </div>
+            <ul class="pricing-card__features">
+              <li>Dedicated signal architect</li>
+              <li>SOC 2 &amp; ISO compliance</li>
+              <li>Private deployment options</li>
+              <li>Innovation labs access</li>
+            </ul>
+            <a class="button button--ghost" href="#contact">Talk to sales</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq reveal" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-head__title" id="faq-title">Answers for curious operators.</h2>
+          <p class="section-head__subtitle">Everything you need to know before bringing Pulseframe into your orbit.</p>
+        </div>
+        <div class="faq__list">
+          <div class="faq-item">
+            <button class="faq-item__trigger" aria-expanded="false">
+              <span>How does Pulseframe automate existing workflows?</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 5v14M5 12h14" stroke="#a855f7" stroke-width="2" stroke-linecap="round"></path>
+              </svg>
+            </button>
+            <div class="faq-item__content" hidden>
+              <p>Pulseframe analyzes your current processes, maps triggers across connected apps, and launches adaptive automations with human-in-the-loop checkpoints to keep control where you need it.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-item__trigger" aria-expanded="false">
+              <span>Can I connect Pulseframe to our internal tools?</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 5v14M5 12h14" stroke="#a855f7" stroke-width="2" stroke-linecap="round"></path>
+              </svg>
+            </button>
+            <div class="faq-item__content" hidden>
+              <p>Our modular API fabric includes connectors for major SaaS platforms and provides a secure SDK so your developers can ship custom integrations in days.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-item__trigger" aria-expanded="false">
+              <span>Is Pulseframe compliant with enterprise standards?</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 5v14M5 12h14" stroke="#a855f7" stroke-width="2" stroke-linecap="round"></path>
+              </svg>
+            </button>
+            <div class="faq-item__content" hidden>
+              <p>Yes. Pulseframe is SOC 2 Type II certified, supports HIPAA-compliant configurations, and offers private cloud or on-premises deployments.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-item__trigger" aria-expanded="false">
+              <span>What support is included?</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 5v14M5 12h14" stroke="#a855f7" stroke-width="2" stroke-linecap="round"></path>
+              </svg>
+            </button>
+            <div class="faq-item__content" hidden>
+              <p>Starter includes standard support, Growth adds concierge onboarding and workflow design, and Enterprise customers receive a dedicated signal architect.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-item__trigger" aria-expanded="false">
+              <span>Do you offer trials or pilots?</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 5v14M5 12h14" stroke="#a855f7" stroke-width="2" stroke-linecap="round"></path>
+              </svg>
+            </button>
+            <div class="faq-item__content" hidden>
+              <p>Absolutely. Start with a 14-day pilot that includes guided configuration and success metrics tailored to your team’s objectives.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__container">
+      <div class="site-footer__brand">
+        <a class="site-footer__logo" href="#top" aria-label="Pulseframe home">
+          <svg class="logo" viewBox="0 0 128 32" role="img" aria-hidden="true">
+            <defs>
+              <linearGradient id="logoGradientFooter" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#22d3ee" />
+                <stop offset="100%" stop-color="#a855f7" />
+              </linearGradient>
+            </defs>
+            <rect x="0" y="6" width="28" height="20" rx="10" fill="url(#logoGradientFooter)" />
+            <path d="M8 18l3-4 3 8 3-5 3 2" fill="none" stroke="#0b0f1a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
+            <text x="38" y="21" fill="#e5e7eb" font-size="18" font-family="Outfit, sans-serif" font-weight="700">Pulseframe</text>
+          </svg>
+        </a>
+        <p class="site-footer__copy">The intelligent workspace platform built for orchestration at scale.</p>
+      </div>
+      <div class="site-footer__links">
+        <div>
+          <h3 class="site-footer__heading">Company</h3>
+          <a href="#">About</a>
+          <a href="#">Careers</a>
+          <a href="#">Press</a>
+        </div>
+        <div>
+          <h3 class="site-footer__heading">Resources</h3>
+          <a href="#">Docs</a>
+          <a href="#">Support</a>
+          <a href="#">System status</a>
+        </div>
+        <div>
+          <h3 class="site-footer__heading">Legal</h3>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Security</a>
+        </div>
+      </div>
+      <div class="site-footer__social">
+        <h3 class="site-footer__heading">Connect</h3>
+        <div class="site-footer__icons">
+          <a href="#" aria-label="Twitter">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M19 7.5c.5 7-5 12-11 12-2 0-3.5-.5-5-1.5 2 .2 3.5-.5 4.5-1.5-1.5 0-2.5-1-3-2 1 .2 1.5.1 2.5-.1-1.7-.4-3-1.9-3-3.7.5.3 1 .4 1.5.4-1.5-1-2.1-3-1.1-4.5 1.7 2.1 4.2 3.5 7 3.7-.5-2.3 1.2-4.3 3.5-4.3 1 0 1.9.4 2.5 1.1.8-.2 1.6-.4 2.3-.9-.3.9-.9 1.6-1.6 2 0 .1 1.5-.2 2-.6-.4.8-1 1.5-1.7 2z" fill="#e5e7eb"></path>
+            </svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5.5 4a2.5 2.5 0 110 5 2.5 2.5 0 010-5zM4 9h3v11H4zM10 9h3v1.7c.4-.8 1.3-1.9 3-1.9 3.2 0 3.8 2.1 3.8 4.8V20h-3v-5.5c0-1.3 0-3-1.9-3-1.9 0-2.1 1.5-2.1 2.9V20h-3z" fill="#e5e7eb"></path>
+            </svg>
+          </a>
+          <a href="#" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2C6.5 2 2 6.6 2 12.2c0 4.5 2.9 8.3 6.9 9.6.5.1.7-.3.7-.6v-2.1c-2.8.6-3.4-1.3-3.4-1.3-.4-1-1-1.3-1-1.3-.8-.5.1-.5.1-.5.9.1 1.3.9 1.3.9.8 1.4 2.1 1 2.6.8.1-.6.3-1 .5-1.2-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.8-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1 .8-.2 1.6-.4 2.4-.4s1.6.1 2.4.4c2-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.7.8 1 1.7 1 2.8 0 3.9-2.4 4.7-4.6 5 .3.3.6.8.6 1.6v2.4c0 .3.2.7.7.6 4-1.3 6.9-5.1 6.9-9.6C22 6.6 17.5 2 12 2z" fill="#e5e7eb"></path>
+            </svg>
+          </a>
+        </div>
+        <p class="site-footer__legal">© <span id="year"></span> Pulseframe. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
