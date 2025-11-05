@@ -1,4 +1,4 @@
-// Three.js 3D Background Scene
+// Three.js 3D Background Scene with Galaxy
 class ThreeBackground {
     constructor() {
         this.canvas = document.getElementById('three-canvas');
@@ -6,11 +6,15 @@ class ThreeBackground {
         this.camera = null;
         this.renderer = null;
         this.geometries = [];
+        this.galaxy = null;
+        this.galaxyParticles = null;
         this.mouse = { x: 0, y: 0 };
         this.targetRotation = { x: 0, y: 0 };
         this.currentRotation = { x: 0, y: 0 };
+        this.scrollProgress = 0;
 
         this.init();
+        this.createGalaxy();
         this.createGeometries();
         this.setupEventListeners();
         this.animate();
@@ -37,6 +41,83 @@ class ThreeBackground {
         });
         this.renderer.setSize(window.innerWidth, window.innerHeight);
         this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    }
+
+    createGalaxy() {
+        const parameters = {
+            count: 15000,
+            size: 0.02,
+            radius: 25,
+            branches: 5,
+            spin: 1.5,
+            randomness: 0.3,
+            randomnessPower: 3,
+            insideColor: '#ff6584',
+            outsideColor: '#6c63ff'
+        };
+
+        // Create geometry
+        const geometry = new THREE.BufferGeometry();
+        const positions = new Float32Array(parameters.count * 3);
+        const colors = new Float32Array(parameters.count * 3);
+        const scales = new Float32Array(parameters.count);
+
+        const colorInside = new THREE.Color(parameters.insideColor);
+        const colorOutside = new THREE.Color(parameters.outsideColor);
+
+        for (let i = 0; i < parameters.count; i++) {
+            const i3 = i * 3;
+
+            // Position
+            const radius = Math.random() * parameters.radius;
+            const spinAngle = radius * parameters.spin;
+            const branchAngle = (i % parameters.branches) / parameters.branches * Math.PI * 2;
+
+            const randomX = Math.pow(Math.random(), parameters.randomnessPower) *
+                           (Math.random() < 0.5 ? 1 : -1) * parameters.randomness * radius;
+            const randomY = Math.pow(Math.random(), parameters.randomnessPower) *
+                           (Math.random() < 0.5 ? 1 : -1) * parameters.randomness * radius;
+            const randomZ = Math.pow(Math.random(), parameters.randomnessPower) *
+                           (Math.random() < 0.5 ? 1 : -1) * parameters.randomness * radius;
+
+            positions[i3] = Math.cos(branchAngle + spinAngle) * radius + randomX;
+            positions[i3 + 1] = randomY;
+            positions[i3 + 2] = Math.sin(branchAngle + spinAngle) * radius + randomZ;
+
+            // Color
+            const mixedColor = colorInside.clone();
+            mixedColor.lerp(colorOutside, radius / parameters.radius);
+
+            colors[i3] = mixedColor.r;
+            colors[i3 + 1] = mixedColor.g;
+            colors[i3 + 2] = mixedColor.b;
+
+            // Scale
+            scales[i] = Math.random();
+        }
+
+        geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+        geometry.setAttribute('aScale', new THREE.BufferAttribute(scales, 1));
+
+        // Material
+        const material = new THREE.PointsMaterial({
+            size: parameters.size,
+            sizeAttenuation: true,
+            depthWrite: false,
+            blending: THREE.AdditiveBlending,
+            vertexColors: true,
+            transparent: true,
+            opacity: 0.8
+        });
+
+        // Points
+        this.galaxy = new THREE.Points(geometry, material);
+        this.galaxy.rotation.x = Math.PI / 4;
+        this.scene.add(this.galaxy);
+
+        // Store original positions for animation
+        this.galaxyOriginalPositions = positions.slice();
     }
 
     createGeometries() {
@@ -158,6 +239,12 @@ class ThreeBackground {
             this.targetRotation.y = this.mouse.x * 0.3;
         });
 
+        window.addEventListener('scroll', () => {
+            // Calculate scroll progress (0 to 1)
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            this.scrollProgress = window.pageYOffset / scrollHeight;
+        });
+
         window.addEventListener('resize', () => {
             // Update camera
             this.camera.aspect = window.innerWidth / window.innerHeight;
@@ -169,6 +256,50 @@ class ThreeBackground {
         });
     }
 
+    animateGalaxy(time) {
+        if (!this.galaxy) return;
+
+        // Rotate galaxy based on scroll
+        this.galaxy.rotation.y = time * 0.05 + this.scrollProgress * Math.PI * 2;
+        this.galaxy.rotation.x = Math.PI / 4 + this.scrollProgress * Math.PI;
+
+        // Zoom in/out based on scroll
+        const baseZ = 30;
+        const scrollZoom = this.scrollProgress * 20;
+        this.camera.position.z = baseZ - scrollZoom;
+
+        // Morph galaxy based on scroll
+        const positions = this.galaxy.geometry.attributes.position.array;
+        for (let i = 0; i < positions.length; i += 3) {
+            const originalX = this.galaxyOriginalPositions[i];
+            const originalY = this.galaxyOriginalPositions[i + 1];
+            const originalZ = this.galaxyOriginalPositions[i + 2];
+
+            // Calculate radius from center
+            const radius = Math.sqrt(originalX * originalX + originalZ * originalZ);
+
+            // Expand/contract effect based on scroll
+            const expansionFactor = 1 + Math.sin(this.scrollProgress * Math.PI) * 0.5;
+
+            // Wave effect
+            const waveHeight = Math.sin(time + radius * 0.2 + this.scrollProgress * 10) * 2;
+
+            positions[i] = originalX * expansionFactor;
+            positions[i + 1] = originalY + waveHeight * this.scrollProgress;
+            positions[i + 2] = originalZ * expansionFactor;
+        }
+
+        this.galaxy.geometry.attributes.position.needsUpdate = true;
+
+        // Fade geometries as we scroll (galaxy becomes more prominent)
+        this.geometries.forEach(mesh => {
+            mesh.material.opacity = 0.7 * (1 - this.scrollProgress * 0.8);
+        });
+
+        // Adjust galaxy opacity based on scroll
+        this.galaxy.material.opacity = 0.6 + this.scrollProgress * 0.4;
+    }
+
     animate() {
         requestAnimationFrame(() => this.animate());
 
@@ -176,12 +307,16 @@ class ThreeBackground {
         this.currentRotation.x += (this.targetRotation.x - this.currentRotation.x) * 0.05;
         this.currentRotation.y += (this.targetRotation.y - this.currentRotation.y) * 0.05;
 
-        // Apply rotation to entire scene
-        this.scene.rotation.x = this.currentRotation.x;
-        this.scene.rotation.y = this.currentRotation.y;
+        // Apply rotation to entire scene (reduced when scrolling)
+        const rotationInfluence = 1 - this.scrollProgress * 0.7;
+        this.scene.rotation.x = this.currentRotation.x * rotationInfluence;
+        this.scene.rotation.y = this.currentRotation.y * rotationInfluence;
 
         // Animate individual geometries
         const time = Date.now() * 0.001;
+
+        // Animate galaxy with scroll
+        this.animateGalaxy(time);
 
         this.geometries.forEach((mesh, index) => {
             // Auto rotation
@@ -199,11 +334,12 @@ class ThreeBackground {
             mesh.position.x = mesh.userData.originalPosition.x +
                              Math.cos(time * floatSpeed * 0.5 + floatOffset) * 1;
 
-            // Pulsing opacity
-            mesh.material.opacity = 0.5 + Math.sin(time + index) * 0.2;
+            // Pulsing opacity - adjusted for scroll
+            const baseOpacity = 0.7 * (1 - this.scrollProgress * 0.8);
+            mesh.material.opacity = baseOpacity;
 
-            // Mouse interaction - slight movement towards mouse
-            const mouseInfluence = 0.5;
+            // Mouse interaction - slight movement towards mouse (reduced when scrolling)
+            const mouseInfluence = 0.5 * (1 - this.scrollProgress * 0.5);
             mesh.position.x += this.mouse.x * mouseInfluence;
             mesh.position.y += this.mouse.y * mouseInfluence;
         });
