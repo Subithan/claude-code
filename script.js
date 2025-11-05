@@ -31,7 +31,7 @@ class ThreeBackground {
             0.1,
             1000
         );
-        this.camera.position.z = 30;
+        this.camera.position.z = 50;
 
         // Create renderer
         this.renderer = new THREE.WebGLRenderer({
@@ -45,12 +45,12 @@ class ThreeBackground {
 
     createGalaxy() {
         const parameters = {
-            count: 15000,
-            size: 0.02,
-            radius: 25,
+            count: 20000,
+            size: 0.05,
+            radius: 50,
             branches: 5,
             spin: 1.5,
-            randomness: 0.3,
+            randomness: 0.5,
             randomnessPower: 3,
             insideColor: '#ff6584',
             outsideColor: '#6c63ff'
@@ -108,7 +108,7 @@ class ThreeBackground {
             blending: THREE.AdditiveBlending,
             vertexColors: true,
             transparent: true,
-            opacity: 0.8
+            opacity: 0.9
         });
 
         // Points
@@ -264,8 +264,8 @@ class ThreeBackground {
         this.galaxy.rotation.x = Math.PI / 4 + this.scrollProgress * Math.PI;
 
         // Zoom in/out based on scroll
-        const baseZ = 30;
-        const scrollZoom = this.scrollProgress * 20;
+        const baseZ = 50;
+        const scrollZoom = this.scrollProgress * 35;
         this.camera.position.z = baseZ - scrollZoom;
 
         // Morph galaxy based on scroll
@@ -297,7 +297,7 @@ class ThreeBackground {
         });
 
         // Adjust galaxy opacity based on scroll
-        this.galaxy.material.opacity = 0.6 + this.scrollProgress * 0.4;
+        this.galaxy.material.opacity = 0.8 + this.scrollProgress * 0.2;
     }
 
     animate() {
