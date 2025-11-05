@@ -31,7 +31,7 @@ class ThreeBackground {
             0.1,
             1000
         );
-        this.camera.position.z = 50;
+        this.camera.position.z = 60;
 
         // Create renderer
         this.renderer = new THREE.WebGLRenderer({
@@ -45,9 +45,9 @@ class ThreeBackground {
 
     createGalaxy() {
         const parameters = {
-            count: 20000,
-            size: 0.05,
-            radius: 50,
+            count: 25000,
+            size: 0.07,
+            radius: 65,
             branches: 5,
             spin: 1.5,
             randomness: 0.5,
@@ -264,8 +264,8 @@ class ThreeBackground {
         this.galaxy.rotation.x = Math.PI / 4 + this.scrollProgress * Math.PI;
 
         // Zoom in/out based on scroll
-        const baseZ = 50;
-        const scrollZoom = this.scrollProgress * 35;
+        const baseZ = 60;
+        const scrollZoom = this.scrollProgress * 40;
         this.camera.position.z = baseZ - scrollZoom;
 
         // Morph galaxy based on scroll
