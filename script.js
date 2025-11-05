@@ -181,15 +181,15 @@ function scrollAnimations() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                entry.target.classList.add('visible');
+                // Don't override transform as it's handled by repulsion effect
             }
         });
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.feature-card, .stat-card, .contact-card').forEach(element => {
         element.style.opacity = '0';
-        element.style.transform = 'translateY(50px)';
-        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        element.classList.add('scroll-animate');
         observer.observe(element);
     });
 }
@@ -431,10 +431,202 @@ function createCursorTrail() {
     drawTrail();
 }
 
+// Repulsion Effect for All Components
+class RepulsionEffect {
+    constructor() {
+        this.mouse = { x: null, y: null };
+        this.elements = [];
+        this.repulsionRadius = 200;
+        this.repulsionStrength = 30;
+        this.initialized = false;
+
+        this.init();
+    }
+
+    init() {
+        // Wait for DOM to be fully loaded
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => this.setup());
+        } else {
+            this.setup();
+        }
+    }
+
+    setup() {
+        // Select all elements that should have repulsion effect
+        const selectors = [
+            '.feature-card',
+            '.stat-card',
+            '.contact-card',
+            '.floating-card',
+            '.about-card',
+            '.hero-text',
+            '.nav-menu li',
+            '.social-links a',
+            '.form-group'
+        ];
+
+        selectors.forEach(selector => {
+            document.querySelectorAll(selector).forEach(element => {
+                // Store original position
+                const rect = element.getBoundingClientRect();
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
+                this.elements.push({
+                    element: element,
+                    originalX: 0,
+                    originalY: 0,
+                    currentX: 0,
+                    currentY: 0
+                });
+
+                // Add smooth transition
+                element.style.transition = 'transform 0.3s ease-out';
+            });
+        });
+
+        this.setupEventListeners();
+        this.animate();
+        this.initialized = true;
+    }
+
+    setupEventListeners() {
+        document.addEventListener('mousemove', (e) => {
+            this.mouse.x = e.clientX;
+            this.mouse.y = e.clientY;
+        });
+
+        document.addEventListener('mouseleave', () => {
+            this.mouse.x = null;
+            this.mouse.y = null;
+            this.resetAllElements();
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            this.updateElementPositions();
+        });
+
+        // Handle scroll
+        window.addEventListener('scroll', () => {
+            this.updateElementPositions();
+        });
+    }
+
+    updateElementPositions() {
+        this.elements.forEach(item => {
+            item.originalX = 0;
+            item.originalY = 0;
+        });
+    }
+
+    calculateRepulsion(element) {
+        const rect = element.getBoundingClientRect();
+        const elementCenterX = rect.left + rect.width / 2;
+        const elementCenterY = rect.top + rect.height / 2;
+
+        if (this.mouse.x === null || this.mouse.y === null) {
+            return { x: 0, y: 0 };
+        }
+
+        const dx = elementCenterX - this.mouse.x;
+        const dy = elementCenterY - this.mouse.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < this.repulsionRadius) {
+            const force = (this.repulsionRadius - distance) / this.repulsionRadius;
+            const angle = Math.atan2(dy, dx);
+
+            const repulsionX = Math.cos(angle) * force * this.repulsionStrength;
+            const repulsionY = Math.sin(angle) * force * this.repulsionStrength;
+
+            return { x: repulsionX, y: repulsionY };
+        }
+
+        return { x: 0, y: 0 };
+    }
+
+    resetAllElements() {
+        this.elements.forEach(item => {
+            item.currentX = 0;
+            item.currentY = 0;
+            item.element.style.transform = `translate(0px, 0px)`;
+        });
+    }
+
+    animate() {
+        this.elements.forEach(item => {
+            const repulsion = this.calculateRepulsion(item.element);
+
+            // Smooth interpolation
+            item.currentX += (repulsion.x - item.currentX) * 0.1;
+            item.currentY += (repulsion.y - item.currentY) * 0.1;
+
+            // Apply transform
+            const existingTransform = item.element.style.transform;
+
+            // Check if element has specific animations (like floating cards)
+            if (item.element.classList.contains('floating-card')) {
+                // Preserve the float animation by combining transforms
+                const floatMatch = existingTransform.match(/translateY\(([^)]+)\)/);
+                const floatY = floatMatch ? floatMatch[1] : '0px';
+                item.element.style.transform = `translate(${item.currentX}px, ${floatY}) translateX(0px)`;
+            } else if (item.element.classList.contains('about-card')) {
+                // Preserve rotation for about card
+                const rotateMatch = existingTransform.match(/rotateY\(([^)]+)\)/);
+                const rotation = rotateMatch ? rotateMatch[1] : '0deg';
+                item.element.style.transform = `translate(${item.currentX}px, ${item.currentY}px) rotateY(${rotation})`;
+            } else {
+                // Standard repulsion
+                item.element.style.transform = `translate(${item.currentX}px, ${item.currentY}px)`;
+            }
+        });
+
+        requestAnimationFrame(() => this.animate());
+    }
+}
+
+// Enhanced Floating Cards with Repulsion
+function enhanceFloatingCards() {
+    const cards = document.querySelectorAll('.floating-card');
+
+    cards.forEach((card, index) => {
+        // Store original animation
+        let startTime = Date.now();
+        const delay = index * 500;
+        const duration = 3000;
+
+        function animateFloat() {
+            const elapsed = Date.now() - startTime;
+            const progress = ((elapsed + delay) % duration) / duration;
+            const y = Math.sin(progress * Math.PI * 2) * 20;
+
+            // Get current repulsion transform
+            const currentTransform = card.style.transform;
+            const translateMatch = currentTransform.match(/translate\(([^,]+),\s*([^)]+)\)/);
+
+            if (translateMatch) {
+                const repulsionX = translateMatch[1];
+                card.style.transform = `translate(${repulsionX}, ${y}px)`;
+            } else {
+                card.style.transform = `translateY(${y}px)`;
+            }
+
+            requestAnimationFrame(animateFloat);
+        }
+
+        animateFloat();
+    });
+}
+
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize particle system
     new ParticleSystem();
+
+    // Initialize repulsion effect
+    new RepulsionEffect();
 
     // Initialize all features
     smoothScroll();
@@ -446,8 +638,9 @@ document.addEventListener('DOMContentLoaded', () => {
     handleNewsletterSubscription();
     addButtonEffects();
     createCursorTrail();
+    enhanceFloatingCards();
 
-    console.log('🚀 Landing page loaded successfully!');
+    console.log('🚀 Landing page loaded successfully with repulsion effects!');
 });
 
 // Add loading animation

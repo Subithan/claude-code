@@ -783,6 +783,44 @@ body {
     color: var(--text-secondary);
 }
 
+/* Scroll Animation Classes */
+.scroll-animate {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.scroll-animate.visible {
+    opacity: 1;
+}
+
+/* Repulsion Effect Support */
+.feature-card,
+.stat-card,
+.contact-card,
+.floating-card,
+.about-card,
+.hero-text,
+.nav-menu li,
+.social-links a,
+.form-group {
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+}
+
+/* Smooth repulsion transitions */
+.repulsion-active {
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Prevent text selection during repulsion for better performance */
+.repulsion-container {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero-content {
