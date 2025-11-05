@@ -1,3 +1,217 @@
+// Three.js 3D Background Scene
+class ThreeBackground {
+    constructor() {
+        this.canvas = document.getElementById('three-canvas');
+        this.scene = null;
+        this.camera = null;
+        this.renderer = null;
+        this.geometries = [];
+        this.mouse = { x: 0, y: 0 };
+        this.targetRotation = { x: 0, y: 0 };
+        this.currentRotation = { x: 0, y: 0 };
+
+        this.init();
+        this.createGeometries();
+        this.setupEventListeners();
+        this.animate();
+    }
+
+    init() {
+        // Create scene
+        this.scene = new THREE.Scene();
+
+        // Create camera
+        this.camera = new THREE.PerspectiveCamera(
+            75,
+            window.innerWidth / window.innerHeight,
+            0.1,
+            1000
+        );
+        this.camera.position.z = 30;
+
+        // Create renderer
+        this.renderer = new THREE.WebGLRenderer({
+            canvas: this.canvas,
+            alpha: true,
+            antialias: true
+        });
+        this.renderer.setSize(window.innerWidth, window.innerHeight);
+        this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    }
+
+    createGeometries() {
+        // Create multiple geometric shapes
+        const shapes = [
+            // Torus
+            {
+                geometry: new THREE.TorusGeometry(5, 1.5, 16, 100),
+                color: 0x6C63FF,
+                position: { x: -15, y: 10, z: -10 },
+                rotation: { x: 0, y: 0, z: 0 }
+            },
+            // Icosahedron
+            {
+                geometry: new THREE.IcosahedronGeometry(4, 0),
+                color: 0xFF6584,
+                position: { x: 15, y: -8, z: -15 },
+                rotation: { x: 0, y: 0, z: 0 }
+            },
+            // Octahedron
+            {
+                geometry: new THREE.OctahedronGeometry(3.5, 0),
+                color: 0x00F5FF,
+                position: { x: -10, y: -12, z: -8 },
+                rotation: { x: 0, y: 0, z: 0 }
+            },
+            // Torus Knot
+            {
+                geometry: new THREE.TorusKnotGeometry(3, 1, 100, 16),
+                color: 0x9D4EDD,
+                position: { x: 18, y: 15, z: -20 },
+                rotation: { x: 0, y: 0, z: 0 }
+            },
+            // Dodecahedron
+            {
+                geometry: new THREE.DodecahedronGeometry(3, 0),
+                color: 0xF72585,
+                position: { x: 0, y: 18, z: -12 },
+                rotation: { x: 0, y: 0, z: 0 }
+            },
+            // Sphere with wireframe
+            {
+                geometry: new THREE.SphereGeometry(4, 32, 32),
+                color: 0x4CC9F0,
+                position: { x: -20, y: -5, z: -18 },
+                rotation: { x: 0, y: 0, z: 0 },
+                wireframe: true
+            },
+            // Box
+            {
+                geometry: new THREE.BoxGeometry(5, 5, 5),
+                color: 0x7209B7,
+                position: { x: 12, y: 5, z: -8 },
+                rotation: { x: 0, y: 0, z: 0 }
+            },
+            // Cone
+            {
+                geometry: new THREE.ConeGeometry(3, 6, 32),
+                color: 0x560BAD,
+                position: { x: 5, y: -15, z: -12 },
+                rotation: { x: 0, y: 0, z: 0 }
+            }
+        ];
+
+        shapes.forEach((shape, index) => {
+            const material = new THREE.MeshPhongMaterial({
+                color: shape.color,
+                wireframe: shape.wireframe || false,
+                transparent: true,
+                opacity: 0.7,
+                shininess: 100
+            });
+
+            const mesh = new THREE.Mesh(shape.geometry, material);
+            mesh.position.set(shape.position.x, shape.position.y, shape.position.z);
+            mesh.rotation.set(shape.rotation.x, shape.rotation.y, shape.rotation.z);
+
+            // Store original position for animation
+            mesh.userData = {
+                originalPosition: { ...shape.position },
+                rotationSpeed: {
+                    x: (Math.random() - 0.5) * 0.02,
+                    y: (Math.random() - 0.5) * 0.02,
+                    z: (Math.random() - 0.5) * 0.02
+                },
+                floatSpeed: 0.001 + Math.random() * 0.002,
+                floatOffset: Math.random() * Math.PI * 2
+            };
+
+            this.geometries.push(mesh);
+            this.scene.add(mesh);
+        });
+
+        // Add lights
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+        this.scene.add(ambientLight);
+
+        const directionalLight1 = new THREE.DirectionalLight(0x6C63FF, 0.8);
+        directionalLight1.position.set(10, 10, 10);
+        this.scene.add(directionalLight1);
+
+        const directionalLight2 = new THREE.DirectionalLight(0xFF6584, 0.6);
+        directionalLight2.position.set(-10, -10, -10);
+        this.scene.add(directionalLight2);
+
+        const pointLight = new THREE.PointLight(0x00F5FF, 1, 100);
+        pointLight.position.set(0, 0, 20);
+        this.scene.add(pointLight);
+    }
+
+    setupEventListeners() {
+        window.addEventListener('mousemove', (e) => {
+            // Normalize mouse coordinates to -1 to 1
+            this.mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+            this.mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+
+            // Calculate target rotation based on mouse position
+            this.targetRotation.x = this.mouse.y * 0.3;
+            this.targetRotation.y = this.mouse.x * 0.3;
+        });
+
+        window.addEventListener('resize', () => {
+            // Update camera
+            this.camera.aspect = window.innerWidth / window.innerHeight;
+            this.camera.updateProjectionMatrix();
+
+            // Update renderer
+            this.renderer.setSize(window.innerWidth, window.innerHeight);
+            this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        });
+    }
+
+    animate() {
+        requestAnimationFrame(() => this.animate());
+
+        // Smooth interpolation for camera rotation
+        this.currentRotation.x += (this.targetRotation.x - this.currentRotation.x) * 0.05;
+        this.currentRotation.y += (this.targetRotation.y - this.currentRotation.y) * 0.05;
+
+        // Apply rotation to entire scene
+        this.scene.rotation.x = this.currentRotation.x;
+        this.scene.rotation.y = this.currentRotation.y;
+
+        // Animate individual geometries
+        const time = Date.now() * 0.001;
+
+        this.geometries.forEach((mesh, index) => {
+            // Auto rotation
+            mesh.rotation.x += mesh.userData.rotationSpeed.x;
+            mesh.rotation.y += mesh.userData.rotationSpeed.y;
+            mesh.rotation.z += mesh.userData.rotationSpeed.z;
+
+            // Floating animation
+            const floatOffset = mesh.userData.floatOffset;
+            const floatSpeed = mesh.userData.floatSpeed;
+            mesh.position.y = mesh.userData.originalPosition.y +
+                             Math.sin(time * floatSpeed + floatOffset) * 2;
+
+            // Slight horizontal drift
+            mesh.position.x = mesh.userData.originalPosition.x +
+                             Math.cos(time * floatSpeed * 0.5 + floatOffset) * 1;
+
+            // Pulsing opacity
+            mesh.material.opacity = 0.5 + Math.sin(time + index) * 0.2;
+
+            // Mouse interaction - slight movement towards mouse
+            const mouseInfluence = 0.5;
+            mesh.position.x += this.mouse.x * mouseInfluence;
+            mesh.position.y += this.mouse.y * mouseInfluence;
+        });
+
+        this.renderer.render(this.scene, this.camera);
+    }
+}
+
 // Particle Animation
 class ParticleSystem {
     constructor() {
@@ -622,6 +836,12 @@ function enhanceFloatingCards() {
 
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize Three.js 3D background
+    if (typeof THREE !== 'undefined') {
+        new ThreeBackground();
+        console.log('✨ Three.js 3D background initialized!');
+    }
+
     // Initialize particle system
     new ParticleSystem();
 
@@ -640,7 +860,7 @@ document.addEventListener('DOMContentLoaded', () => {
     createCursorTrail();
     enhanceFloatingCards();
 
-    console.log('🚀 Landing page loaded successfully with repulsion effects!');
+    console.log('🚀 Landing page loaded successfully with 3D effects and repulsion!');
 });
 
 // Add loading animation
